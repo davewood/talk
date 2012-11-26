@@ -5,6 +5,44 @@
   </a>
 </div>
 
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
 [% FOREACH slide IN talk.slides %]
-    <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]">[% slide.title %]</a><br/>
+    <tr>
+      <td>
+        <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]">[% slide.title %]</a>
+      </td>
+      <td>
+        <form style="display:none" id="form_[% slide.id %]_move_next" action="[% c.uri_for(c.controller('Slide').action_for('move_next'), [ talk.id, slide.id ]) %]" method="post">
+        </form>
+        <form style="display:none" id="form_[% slide.id %]_move_previous" action="[% c.uri_for(c.controller('Slide').action_for('move_previous'), [ talk.id, slide.id ]) %]" method="post">
+        </form>
+        <form style="display:none" id="form_[% slide.id %]_delete" action="[% c.uri_for(c.controller('Slide').action_for('delete'), [ talk.id, slide.id ]) %]" method="post">
+        </form>
+        <form style="display:none" id="form_[% slide.id %]_edit" action="[% c.uri_for(c.controller('Slide').action_for('edit'), [ talk.id, slide.id ]) %]" method="post">
+        </form>
+        <div class="btn-group">
+          <a class="btn btn-mini [% IF !slide.last_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_next').submit();[% END %]">
+            <i class="icon-chevron-down"></i>
+          </a>
+          <a class="btn btn-mini [% IF !slide.first_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_previous').submit();[% END %]">
+            <i class="icon-chevron-up"></i>
+          </a>
+          <a class="btn btn-mini" onclick="$('#form_[% slide.id %]_delete').submit();">
+            <i class="icon-trash"></i>
+          </a>
+          <a class="btn btn-mini" onclick="$('#form_[% slide.id %]_edit').submit();">
+            <i class="icon-pencil"></i>
+          </a>
+        </div>
+      </td>
+    </tr>
 [% END %]
+  </tbody>
+</table>

@@ -1,13 +1,14 @@
-<h1>[% slide.title %]</h1>
+<div class="slide">
+    <h1>[% slide.title %]</h1>
 
-<p>
-  [% slide.content %]
-</p>
+    <p>
+      [% slide.content %]
+    </p>
 
-
-[% IF slide.previous_sibling %]
-<a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]">prev</a>
-[% END %]
-[% IF slide.next_sibling %]
-<a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]">next</a>
-[% END %]
+    [% IF slide.previous_sibling %]
+    <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]">prev</a>
+    [% END %]
+    [% IF slide.next_sibling %]
+    <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]">next</a>
+    [% END %]
+</div>

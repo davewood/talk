@@ -2,3 +2,17 @@ body {
     background-color: #efg;
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
+
+.slide {
+    font-size: 28px;
+    line-height: 34px;
+}
+
+.slide li {
+    line-height: 34px;
+}
+
+code {
+    font-size: 28px;
+    line-height: 34px;
+}
