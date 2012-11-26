@@ -1,1 +1,6 @@
-index
+<h1>index</h1>
+
+<h2>[% talk.title %]</h2>
+<p>
+  [% talk.content %]
+</p>

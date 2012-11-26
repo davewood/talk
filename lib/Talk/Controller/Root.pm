@@ -28,6 +28,8 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
+    my $talk = $c->model('DB::Talk')->first;
+    $c->stash(talk => $talk);
 }
 
 =head2 default

@@ -47,6 +47,13 @@ __PACKAGE__->config(
         WRAPPER            => 'wrapper.tt',
         ENCODING           => 'utf-8',
     },
+    'Model::DB' => {
+        schema_class => 'Talk::Schema',
+        connect_info => {
+            dsn => 'dbi:SQLite:dbname=' . __PACKAGE__->path_to('talk.db'),
+            sqlite_unicode => 1,
+        },
+      },
 );
 
 # Start the application
