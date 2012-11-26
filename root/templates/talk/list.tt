@@ -1,5 +1,33 @@
-<h1>Talks</h1>
+<div class="page-header">
+  <h2>Talks</h2>
+  <a class="btn btn-mini" href="[% c.uri_for(c.controller.action_for('create')) %]">
+    <i class="icon-plus"></i>
+  </a>
+</div>
 
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slides</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 [% FOREACH talk IN talks %]
-    <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]">[% talk.title %]</a><br/>
+  <tr>
+    <td>
+      <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]">[% talk.title %]</a>
+    </td>
+    <td>
+      [% 0 + talk.slides.size() %]
+    </td>
+    <td>
+      [% IF talk.slides AND talk.slides.size() > 0 %]
+      <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, talk.slides.first.id] ) %]">start</a>
+      [% END %]
+    </td>
+  </tr>
 [% END %]
+  </tbody>
+</table>

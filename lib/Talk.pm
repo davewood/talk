@@ -91,6 +91,7 @@ __PACKAGE__->config(
         resource_key     => 'slide',
         form_class       => 'Talk::Form::Slide',
         model            => 'DB::Slide',
+        traits           => ['Sortable'],
         redirect_mode    => 'show_parent',
         actions          => {
             base => {
