@@ -26,6 +26,9 @@
         <form style="display:none" id="form_[% slide.id %]_delete" action="[% c.uri_for(c.controller('Slide').action_for('delete'), [ talk.id, slide.id ]) %]" method="post">
         </form>
         <form style="display:none" id="form_[% slide.id %]_edit" action="[% c.uri_for(c.controller('Slide').action_for('edit'), [ talk.id, slide.id ]) %]" method="post">
+=======
+        <form style="display:none" id="form_[% slide.id %]_delete" action="[%
+    c.uri_for(c.controller('Slide').action_for('delete'), [ talk.id, slide.id ]) %]" method="post">
         </form>
         <div class="btn-group">
           <a class="btn btn-mini [% IF !slide.last_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_next').submit();[% END %]">
