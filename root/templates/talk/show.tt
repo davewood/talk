@@ -1,0 +1,6 @@
+<a href="[% c.uri_for(c.controller('Slide').action_for('create'), [talk.id] )
+%]">add slide</a><br/>
+
+[% FOREACH slide IN talk.slides %]
+    <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]">[% slide.title %]</a><br/>
+[% END %]

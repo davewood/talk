@@ -62,25 +62,43 @@ __PACKAGE__->config(
         },
     },
     'CatalystX::Resource' => {
-        controllers => [qw/
-            Talk
-        /]
+        controllers => [
+            qw/
+              Talk
+              Slide
+              /
+        ]
     },
     'Controller::Talk' => {
-        resultset_key          => 'talks_rs',
-        resources_key          => 'talks',
-        resource_key           => 'talk',
-        form_class             => 'Talk::Form::Talk',
-        model                  => 'DB::Talk',
-        redirect_mode          => 'list',
-        actions                => {
+        resultset_key => 'talks_rs',
+        resources_key => 'talks',
+        resource_key  => 'talk',
+        form_class    => 'Talk::Form::Talk',
+        model         => 'DB::Talk',
+        redirect_mode => 'list',
+        actions       => {
             base => {
-                Chained => '/',
+                Chained  => '/',
                 PathPart => 'talk',
             },
         },
     },
-
+    'Controller::Slide' => {
+        parent_key       => 'talk',
+        parents_accessor => 'slides',
+        resultset_key    => 'slides_rs',
+        resources_key    => 'slides',
+        resource_key     => 'slide',
+        form_class       => 'Talk::Form::Slide',
+        model            => 'DB::Slide',
+        redirect_mode    => 'show_parent',
+        actions          => {
+            base => {
+                Chained  => '/talk/base_with_id',
+                PathPart => 'slide',
+            },
+        },
+    },
 );
 
 # Start the application
