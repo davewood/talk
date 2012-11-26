@@ -1,1 +1,14 @@
-[% content %]
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Talk</title>
+
+  </head>
+  <body>
+      <a href="[% c.uri_for(c.controller('Talk').action_for('create')) %]">create talk</a><br/>
+      <div>[% error_msg %]</div>
+      <div>[% msg %]</div>
+      <div>[% content %]</div>
+  </body>
+</html>

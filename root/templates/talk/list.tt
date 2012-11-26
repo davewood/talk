@@ -1,0 +1,5 @@
+<h1>Talks</h1>
+
+[% FOREACH talk IN talks %]
+    <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]">[% talk.title %]</a><br/>
+[% END %]

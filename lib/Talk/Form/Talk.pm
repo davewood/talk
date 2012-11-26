@@ -8,9 +8,5 @@ has_field 'title' => (
     type     => 'Text',
     required => 1
 );
-has_field 'content' => (
-    type     => 'TextArea',
-    required => 1
-);
 has_field 'submit' => (type => 'Submit');
 1;

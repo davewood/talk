@@ -28,24 +28,6 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-    my $talk = $c->model('DB::Talk')->first;
-    $c->stash(talk => $talk);
-}
-
-use Talk::Form::Talk;
-sub form :Local :Args(0) {
-    my ( $self, $c ) = @_;
-    my $talk = $c->model('DB::Talk')->new_result({});
-    my $form = Talk::Form::Talk->new();
-    my $result = $form->process(
-        item => $talk,
-        params => $c->req->params,
-    );
-    my $rendered_form = $form->render;
-    $c->stash( template => \$rendered_form );
-    if ($form->validated) {
-        $c->res->redirect('/');
-    }
 }
 
 =head2 default
@@ -58,6 +40,15 @@ sub default :Path {
     my ( $self, $c ) = @_;
     $c->response->body( 'Page not found' );
     $c->response->status(404);
+}
+
+sub error : Private {
+    my ($self, $c) = @_;
+    unless ($c->stash->{error_msg}) {
+        $c->stash(error_msg => 'Page not found. 404');
+    }
+    $c->res->status(404);
+    $c->stash(template => 'error.tt');
 }
 
 =head2 end
