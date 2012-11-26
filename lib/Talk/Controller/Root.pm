@@ -32,6 +32,22 @@ sub index :Path :Args(0) {
     $c->stash(talk => $talk);
 }
 
+use Talk::Form::Talk;
+sub form :Local :Args(0) {
+    my ( $self, $c ) = @_;
+    my $talk = $c->model('DB::Talk')->new_result({});
+    my $form = Talk::Form::Talk->new();
+    my $result = $form->process(
+        item => $talk,
+        params => $c->req->params,
+    );
+    my $rendered_form = $form->render;
+    $c->stash( template => \$rendered_form );
+    if ($form->validated) {
+        $c->res->redirect('/');
+    }
+}
+
 =head2 default
 
 Standard 404 error page
