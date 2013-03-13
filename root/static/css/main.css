@@ -7,12 +7,19 @@ body {
     font-size: 28px;
     line-height: 34px;
 }
-
 .slide li {
     line-height: 34px;
+}
+.slide p {
+    padding-bottom: 30px;
 }
 
 code {
     font-size: 28px;
     line-height: 34px;
+}
+
+h1#title {
+    text-align: center;
+    margin-bottom: 50px;
 }

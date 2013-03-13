@@ -1,12 +1,12 @@
 [% IF slide.previous_sibling %]
-<a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]">prev</a>
+<a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="icon-chevron-left"></i></a>
 [% END %]
 [% IF slide.next_sibling %]
-<a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]">next</a>
+<a href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="icon-chevron-right"></i></a>
 [% END %]
 
 <div class="slide">
-    <h1>[% slide.title %]</h1>
+    <h1 id="title">[% slide.title %]</h1>
 
     <p>
       [% slide.content %]
