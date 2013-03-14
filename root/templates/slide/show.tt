@@ -7,9 +7,5 @@
 
 <div class="slide">
     <h1 id="title">[% slide.title %]</h1>
-
-    <p>
-      [% slide.content %]
-    </p>
-
+    [% slide.content %]
 </div>
