@@ -13,6 +13,9 @@ body {
 .slide p {
     padding-bottom: 30px;
 }
+.slide pre strong {
+    color: #f00;
+}
 
 code {
     font-size: 28px;
