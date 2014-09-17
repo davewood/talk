@@ -48,8 +48,7 @@ __PACKAGE__->config(
         ]
     },
     'Controller::Talk' => {
-        resultset_key => 'talks_rs',
-        resources_key => 'talks',
+        resultset_key => 'talks',
         resource_key  => 'talk',
         form_class    => 'Talk::Form::Talk',
         model         => 'DB::Talk',
@@ -64,8 +63,7 @@ __PACKAGE__->config(
     'Controller::Slide' => {
         parent_key       => 'talk',
         parents_accessor => 'slides',
-        resultset_key    => 'slides_rs',
-        resources_key    => 'slides',
+        resultset_key    => 'slides',
         resource_key     => 'slide',
         form_class       => 'Talk::Form::Slide',
         model            => 'DB::Slide',

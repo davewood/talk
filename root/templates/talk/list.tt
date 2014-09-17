@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-[% FOREACH talk IN talks %]
+[% FOREACH talk IN talks.all %]
   <tr>
     <td>
       <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]">[% talk.title %]</a>
