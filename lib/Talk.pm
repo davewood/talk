@@ -10,7 +10,6 @@ use Catalyst qw/
     Session
     Session::Store::FastMmap
     Session::State::Cookie
-    Unicode::Encoding
     StackTrace
     +CatalystX::Resource
 /;
@@ -22,6 +21,7 @@ our $VERSION = '0.01';
 
 __PACKAGE__->config(
     name => 'Talk',
+    encoding => 'UTF-8',
     disable_component_resolution_regex_fallback => 1,
     enable_catalyst_header                      => 1,
     'Plugin::Session' => { flash_to_stash => 1 },
