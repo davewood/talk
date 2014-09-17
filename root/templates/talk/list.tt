@@ -24,8 +24,14 @@
     </td>
     <td>
       [% IF talk.slides AND talk.slides.size() > 0 %]
-      <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, talk.slides.first.id] ) %]">start</a>
+      <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, talk.slides.first.id] ) %]"><i class="icon-play"></i></a>
       [% END %]
+      <form style="display:none" id="form_[% talk.id %]_delete" action="[% c.uri_for(c.controller('Talk').action_for('delete'), [talk.id] ) %]" method="post"></form>
+
+      <a onclick="confirm('Do you really want to delete &ldquo;[% talk.title.squote %]&rdquo;?') && $('#form_[% talk.id %]_delete').submit();" title="Delete [% talk.title %]">
+        <i class="icon-trash"></i>
+      </a>
+
     </td>
   </tr>
 [% END %]
