@@ -32,7 +32,7 @@
         <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% talk.title.squote %]&rdquo;?') && $('#form_[% talk.id %]_delete').submit();" title="Delete [% talk.title %]"><i class="icon-trash"></i></a>
 
         [% IF slides %]
-        <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, talk.slides.first.id] ) %]"><i class="icon-play"></i></a>
+        <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slides.first.id] ) %]"><i class="icon-play"></i></a>
         [% ELSE %]
         <a class="btn btn-mini disabled"><i class="icon-play"></i></a>
         [% END %]
