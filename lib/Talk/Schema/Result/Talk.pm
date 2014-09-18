@@ -22,4 +22,6 @@ __PACKAGE__->has_many(
     'talk_id',
 );
 
+__PACKAGE__->resultset_class('Talk::Schema::ResultSet::Talk');
+
 1;

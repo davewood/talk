@@ -23,7 +23,7 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key('id');
 __PACKAGE__->position_column('position');
 __PACKAGE__->grouping_column('talk_id');
-__PACKAGE__->resultset_attributes({ order_by => [qw/ talk_id position /] });
+__PACKAGE__->resultset_class('Talk::Schema::ResultSet::Slide');
 
 __PACKAGE__->belongs_to(
     'talk',

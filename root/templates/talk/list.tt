@@ -14,24 +14,29 @@
     </tr>
   </thead>
   <tbody>
-[% FOREACH talk IN talks.all %]
+[% FOR talk IN talks.default_order.all %]
   <tr>
     <td>
       <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]">[% talk.title %]</a>
     </td>
     <td>
-      [% 0 + talk.slides.size() %]
+      [% slides = talk.slides_rs.default_order.all() %]
+      [% IF slides %]
+      [% slides.max()+1 %]
+      [% END %]
     </td>
     <td>
-      [% IF talk.slides AND talk.slides.size() > 0 %]
-      <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, talk.slides.first.id] ) %]"><i class="icon-play"></i></a>
-      [% END %]
       <form style="display:none" id="form_[% talk.id %]_delete" action="[% c.uri_for(c.controller('Talk').action_for('delete'), [talk.id] ) %]" method="post"></form>
 
-      <a onclick="confirm('Do you really want to delete &ldquo;[% talk.title.squote %]&rdquo;?') && $('#form_[% talk.id %]_delete').submit();" title="Delete [% talk.title %]">
-        <i class="icon-trash"></i>
-      </a>
+      <div class="btn-group">
+        <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% talk.title.squote %]&rdquo;?') && $('#form_[% talk.id %]_delete').submit();" title="Delete [% talk.title %]"><i class="icon-trash"></i></a>
 
+        [% IF slides %]
+        <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, talk.slides.first.id] ) %]"><i class="icon-play"></i></a>
+        [% ELSE %]
+        <a class="btn btn-mini disabled"><i class="icon-play"></i></a>
+        [% END %]
+      </div>
     </td>
   </tr>
 [% END %]

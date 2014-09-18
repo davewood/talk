@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-[% FOREACH slide IN talk.slides %]
+[% FOR slide IN talk.slides_rs.default_order.all %]
     <tr>
       <td>
         <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]">[% slide.title %]</a>
