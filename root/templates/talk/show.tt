@@ -36,7 +36,7 @@
           <a class="btn btn-mini [% IF !slide.first_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_previous').submit();[% END %]">
             <i class="icon-chevron-up"></i>
           </a>
-          <a class="btn btn-mini" onclick="$('#form_[% slide.id %]_delete').submit();">
+          <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% slide.title.squote %]&rdquo;?') && $('#form_[% slide.id %]_delete').submit();">
             <i class="icon-trash"></i>
           </a>
           <a class="btn btn-mini" onclick="$('#form_[% slide.id %]_edit').submit();">
