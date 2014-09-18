@@ -16,9 +16,7 @@
   <tbody>
 [% FOR talk IN talks.default_order.all %]
   <tr>
-    <td>
-      <a href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]">[% talk.title %]</a>
-    </td>
+    <td>[% talk.title %]</td>
     <td>
       [% slides = talk.slides_rs.default_order.all() %]
       [% IF slides %]
@@ -29,6 +27,7 @@
       <form style="display:none" id="form_[% talk.id %]_delete" action="[% c.uri_for(c.controller('Talk').action_for('delete'), [talk.id] ) %]" method="post"></form>
 
       <div class="btn-group">
+        <a class="btn btn-mini" href="[% c.uri_for(c.controller.action_for('show'), [talk.id] ) %]"><i class="icon-pencil"></i></a>
         <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% talk.title.squote %]&rdquo;?') && $('#form_[% talk.id %]_delete').submit();" title="Delete [% talk.title %]"><i class="icon-trash"></i></a>
 
         [% IF slides %]

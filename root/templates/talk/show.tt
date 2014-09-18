@@ -1,8 +1,16 @@
+[% slides = talk.slides_rs.default_order.all %]
 <div class="page-header">
   <h2>[% talk.title %]</h2>
-  <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('create'), [talk.id]) %]">
-    <i class="icon-plus"></i>
-  </a>
+  <div class="btn-group">
+    <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('create'), [talk.id]) %]">
+      <i class="icon-plus"></i>
+    </a>
+    [% IF slides %]
+    <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slides.first.id] ) %]"><i class="icon-play"></i></a>
+    [% ELSE %]
+    <a class="btn btn-mini disabled"><i class="icon-play"></i></a>
+    [% END %]
+  </div>
 </div>
 
 <table class="table table-condensed">
@@ -13,11 +21,9 @@
     </tr>
   </thead>
   <tbody>
-[% FOR slide IN talk.slides_rs.default_order.all %]
+[% FOR slide IN slides %]
     <tr>
-      <td>
-        <a href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]">[% slide.title %]</a>
-      </td>
+      <td>[% slide.title %]</td>
       <td>
         <form style="display:none" id="form_[% slide.id %]_move_next" action="[% c.uri_for(c.controller('Slide').action_for('move_next'), [ talk.id, slide.id ]) %]" method="post">
         </form>
@@ -30,6 +36,7 @@
     c.uri_for(c.controller('Slide').action_for('delete'), [ talk.id, slide.id ]) %]" method="post">
         </form>
         <div class="btn-group">
+          <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]"><i class="icon-eye-open"></i></a>
           <a class="btn btn-mini [% IF !slide.last_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_next').submit();[% END %]">
             <i class="icon-chevron-down"></i>
           </a>
