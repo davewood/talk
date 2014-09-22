@@ -17,12 +17,17 @@ body {
     color: #f00;
 }
 
-code {
+.slide code {
     font-size: 28px;
     line-height: 34px;
 }
 
-h1#title {
+.slide h1#title {
     text-align: center;
     margin-bottom: 50px;
+}
+
+textarea {
+    width: 600px;
+    height: 400px;
 }

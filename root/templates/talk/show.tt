@@ -33,8 +33,8 @@
           <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]"><i class="icon-eye-open"></i></a>
           <a class="btn btn-mini [% IF !slide.last_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_next').submit();[% END %]"><i class="icon-chevron-down"></i></a>
           <a class="btn btn-mini [% IF !slide.first_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_previous').submit();[% END %]"><i class="icon-chevron-up"></i></a>
-          <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% slide.title.squote %]&rdquo;?') && $('#form_[% slide.id %]_delete').submit();"><i class="icon-trash"></i></a>
           <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('edit'), [ talk.id, slide.id ]) %]"><i class="icon-pencil"></i></a>
+          <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% slide.title.squote %]&rdquo;?') && $('#form_[% slide.id %]_delete').submit();"><i class="icon-trash"></i></a>
         </div>
 
       </td>
