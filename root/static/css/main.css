@@ -22,7 +22,7 @@ body {
     line-height: 34px;
 }
 
-.slide h1#title {
+.slide h1.title {
     text-align: center;
     margin-bottom: 50px;
 }

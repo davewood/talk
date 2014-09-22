@@ -68,7 +68,7 @@ __PACKAGE__->config(
         form_class       => 'Talk::Form::Slide',
         model            => 'DB::Slide',
         traits           => ['Sortable'],
-        redirect_mode    => 'show_parent',
+        redirect_mode    => 'show',
         actions          => {
             base => {
                 Chained  => '/talk/base_with_id',
