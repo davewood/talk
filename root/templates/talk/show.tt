@@ -2,18 +2,18 @@
 <div class="page-header">
   <h2>[% talk.title %]</h2>
   <div class="btn-group">
-    <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('create'), [talk.id]) %]">
-      <i class="icon-plus"></i>
+    <a class="btn btn-default btn-xs" href="[% c.uri_for(c.controller('Slide').action_for('create'), [talk.id]) %]">
+      <i class="glyphicon glyphicon-plus"></i>
     </a>
     [% IF slides %]
-    <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slides.first.id] ) %]"><i class="icon-play"></i></a>
+    <a class="btn btn-default btn-xs" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slides.first.id] ) %]"><i class="glyphicon glyphicon-play"></i></a>
     [% ELSE %]
-    <a class="btn btn-mini disabled"><i class="icon-play"></i></a>
+    <a class="btn btn-default btn-xs disabled"><i class="glyphicon glyphicon-play"></i></a>
     [% END %]
   </div>
 </div>
 
-<table class="table table-condensed">
+<table class="table table-hover table-condensed">
   <thead>
     <tr>
       <th>Title</th>
@@ -30,11 +30,11 @@
         <form style="display:none" id="form_[% slide.id %]_delete" action="[% c.uri_for(c.controller('Slide').action_for('delete'), [ talk.id, slide.id ]) %]" method="post"></form>
 
         <div class="btn-group">
-          <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]"><i class="icon-eye-open"></i></a>
-          <a class="btn btn-mini [% IF !slide.last_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_next').submit();[% END %]"><i class="icon-chevron-down"></i></a>
-          <a class="btn btn-mini [% IF !slide.first_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_previous').submit();[% END %]"><i class="icon-chevron-up"></i></a>
-          <a class="btn btn-mini" href="[% c.uri_for(c.controller('Slide').action_for('edit'), [ talk.id, slide.id ]) %]"><i class="icon-pencil"></i></a>
-          <a class="btn btn-mini" onclick="confirm('Do you really want to delete &ldquo;[% slide.title.squote %]&rdquo;?') && $('#form_[% slide.id %]_delete').submit();"><i class="icon-trash"></i></a>
+          <a class="btn btn-default btn-xs" href="[% c.uri_for(c.controller('Slide').action_for('show'), [talk.id, slide.id]) %]"><i class="glyphicon glyphicon-eye-open"></i></a>
+          <a class="btn btn-default btn-xs [% IF !slide.last_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_next').submit();[% END %]"><i class="glyphicon glyphicon-chevron-down"></i></a>
+          <a class="btn btn-default btn-xs [% IF !slide.first_sibling %]disabled[% ELSE %]" onclick="$('#form_[% slide.id %]_move_previous').submit();[% END %]"><i class="glyphicon glyphicon-chevron-up"></i></a>
+          <a class="btn btn-default btn-xs" href="[% c.uri_for(c.controller('Slide').action_for('edit'), [ talk.id, slide.id ]) %]"><i class="glyphicon glyphicon-pencil"></i></a>
+          <a class="btn btn-default btn-xs" onclick="confirm('Do you really want to delete &ldquo;[% slide.title.squote %]&rdquo;?') && $('#form_[% slide.id %]_delete').submit();"><i class="glyphicon glyphicon-trash"></i></a>
         </div>
 
       </td>

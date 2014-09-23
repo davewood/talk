@@ -1,17 +1,17 @@
 <div class="btn-group pull-right">
   [% IF slide.previous_sibling %]
-  <a class="btn btn-mini" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="icon-chevron-left"></i></a>
+  <a class="btn btn-default btn-xs" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-left"></i></a>
   [% ELSE %]
-  <a class="btn btn-mini disabled"><i class="icon-chevron-left"></i></a>
+  <a class="btn btn-default btn-xs disabled"><i class="glyphicon glyphicon-chevron-left"></i></a>
   [% END %]
-  <span class="btn btn-mini">[% slide.position %]/[% talk.slides.max+1 %]</span>
-  <a class="btn btn-mini" title="edit slide" href="[% c.uri_for(c.controller.action_for('edit'), [ talk.id, slide.id ]) %]"><i class="icon-pencil"></i></a>
-  <a class="btn btn-mini" title="list all slides" href="[% c.uri_for(c.controller('Talk').action_for('show'), [talk.id] ) %]"><i class="icon-list"></i></a>
   [% IF slide.next_sibling %]
-  <a class="btn btn-mini" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="icon-chevron-right"></i></a>
+  <a class="btn btn-default btn-xs" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-right"></i></a>
   [% ELSE %]
-  <a class="btn btn-mini disabled"><i class="icon-chevron-right"></i></a>
+  <a class="btn btn-default btn-xs disabled"><i class="glyphicon glyphicon-chevron-right"></i></a>
   [% END %]
+  <span class="btn btn-default btn-xs">[% slide.position %]/[% talk.slides.max+1 %]</span>
+  <a class="btn btn-default btn-xs" title="edit slide" href="[% c.uri_for(c.controller.action_for('edit'), [ talk.id, slide.id ]) %]"><i class="glyphicon glyphicon-pencil"></i></a>
+  <a class="btn btn-default btn-xs" title="list all slides" href="[% c.uri_for(c.controller('Talk').action_for('show'), [talk.id] ) %]"><i class="glyphicon glyphicon-list"></i></a>
 </div>
 
 <div class="slide">

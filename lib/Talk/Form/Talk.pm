@@ -1,7 +1,7 @@
 package Talk::Form::Talk;
 use HTML::FormHandler::Moose;
 extends 'HTML::FormHandler::Model::DBIC';
-with 'HTML::FormHandler::Widget::Theme::Bootstrap';
+with 'Talk::Role::Form';
 
 has '+item_class' => (default => 'Talk');
 has_field 'title' => (

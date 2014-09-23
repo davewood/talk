@@ -1,9 +1,10 @@
 package Talk::Form::Slide;
 use HTML::FormHandler::Moose;
 extends 'HTML::FormHandler::Model::DBIC';
-with 'HTML::FormHandler::Widget::Theme::Bootstrap';
+with 'Talk::Role::Form';
 
 has '+item_class' => (default => 'Slide');
+
 has_field 'title' => (
     type     => 'Text',
     required => 1
