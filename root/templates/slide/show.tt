@@ -7,12 +7,12 @@
   <div class="container">
     <div class="btn-group center-block">
       [% IF slide.previous_sibling %]
-      <a class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a id="prev-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-left"></i></a>
       [% ELSE %]
       <a class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-left"></i></a>
       [% END %]
       [% IF slide.next_sibling %]
-      <a class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      <a id="next-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-right"></i></a>
       [% ELSE %]
       <a class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-right"></i></a>
       [% END %]
@@ -22,3 +22,17 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        switch (evt.keyCode) {
+            case 33:
+                document.getElementById('prev-slide').click();
+                break;
+            case 34:
+                document.getElementById('next-slide').click();
+                break;
+        }
+    };
+</script>
