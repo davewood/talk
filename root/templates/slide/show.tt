@@ -5,7 +5,7 @@
 
 <div class="footer">
   <div class="container">
-    <div class="btn-group center-block">
+    <div class="btn-group pull-right">
       [% IF slide.previous_sibling %]
       <a id="prev-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-left"></i></a>
       [% ELSE %]

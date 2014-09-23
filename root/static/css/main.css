@@ -3,13 +3,6 @@ body {
     padding-top: 60px; /* to make the container go all the way to the bottom of the topbar */
 }
 
-.footer {
-    position: absolute;
-    bottom: 20px;
-}
-.footer .btn-group {
-    width: 295px;
-}
 .slide h1.title {
     text-align: center;
     margin-top: 20px;
@@ -20,6 +13,17 @@ textarea {
     min-height: 400px !important;
 }
 
+/* make footer actionbar less visible */
+.footer {
+    position: absolute;
+    bottom: 20px;
+}
+.footer .btn-group {
+    opacity: 0.75;
+}
+.footer .btn-group:hover {
+    opacity: 1.0;
+}
 .btn {
     font-size: 70%;
 }
