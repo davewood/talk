@@ -14,7 +14,7 @@
       <div class="container">
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li[% IF active == 'news'%] class="active"[% END %]>
+            <li>
               <a href="[% c.uri_for(c.controller('Talk').action_for('list')) %]">Talks</a>
             </li>
           </ul>
