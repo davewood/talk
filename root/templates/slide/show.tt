@@ -1,25 +1,23 @@
-<div class="slide">
-    <h1 class="title">[% slide.title %]</h1>
+<div id="slide">
+    <div id="slide-title">[% slide.title %]</div>
     [% slide.content %]
 </div>
 
-<div class="footer">
-  <div class="container">
-    <div class="btn-group pull-right">
-      [% IF slide.previous_sibling %]
-      <a id="prev-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-left"></i></a>
-      [% ELSE %]
-      <a class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-left"></i></a>
-      [% END %]
-      [% IF slide.next_sibling %]
-      <a id="next-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-right"></i></a>
-      [% ELSE %]
-      <a class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-right"></i></a>
-      [% END %]
-      <span class="btn btn-default">[% slide.position %]/[% talk.slides.max+1 %]</span>
-      <a class="btn btn-default" title="edit slide" href="[% c.uri_for(c.controller.action_for('edit'), [ talk.id, slide.id ]) %]"><i class="glyphicon glyphicon-pencil"></i></a>
-      <a class="btn btn-default" title="list all slides" href="[% c.uri_for(c.controller('Talk').action_for('show'), [talk.id] ) %]"><i class="glyphicon glyphicon-list"></i></a>
-    </div>
+<div id="slide-controls" class="pale">
+  <div class="btn-group pull-right">
+    [% IF slide.previous_sibling %]
+    <a id="prev-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.previous_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    [% ELSE %]
+    <a class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    [% END %]
+    [% IF slide.next_sibling %]
+    <a id="next-slide" class="btn btn-default" href="[% c.uri_for(c.controller.action_for('show'), [talk.id, slide.next_sibling.id] ) %]"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    [% ELSE %]
+    <a class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    [% END %]
+    <span class="btn btn-default">[% slide.position %]/[% talk.slides.max+1 %]</span>
+    <a class="btn btn-default" title="edit slide" href="[% c.uri_for(c.controller.action_for('edit'), [ talk.id, slide.id ]) %]"><i class="glyphicon glyphicon-pencil"></i></a>
+    <a class="btn btn-default" title="list all slides" href="[% c.uri_for(c.controller('Talk').action_for('show'), [talk.id] ) %]"><i class="glyphicon glyphicon-list"></i></a>
   </div>
 </div>
 

@@ -1,29 +1,38 @@
 body {
     background-color: #efg;
-    padding-top: 60px; /* to make the container go all the way to the bottom of the topbar */
 }
 
-.slide h1.title {
+#slide {
+    margin-top: 10px;
+}
+
+#slide-title {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: 40px;
 }
 
 textarea {
     min-height: 400px !important;
 }
 
-/* make footer actionbar less visible */
-.footer {
+#home {
     position: absolute;
-    bottom: 20px;
+    top: 5px;
+    left: 5px;
 }
-.footer .btn-group {
-    opacity: 0.75;
+
+#slide-controls {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
-.footer .btn-group:hover {
+.pale {
+    opacity: 0.4;
+}
+.pale:hover {
     opacity: 1.0;
 }
-.btn {
-    font-size: 70%;
+.btn i {
+    font-size: 75%;
 }
