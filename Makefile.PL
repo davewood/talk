@@ -19,7 +19,8 @@ requires 'Config::General';
 requires 'CatalystX::Resource';
 requires 'CatalystX::SimpleLogin';
 requires 'Catalyst::Plugin::Authentication';
-requries 'DBIx::Class';
+requires 'DBIx::Class';
+requires 'Config::Any::Perl';
 test_requires 'Test::More' => '0.88';
 catalyst;
 
