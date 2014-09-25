@@ -12,6 +12,8 @@ use Catalyst qw/
     Session::State::Cookie
     StackTrace
     +CatalystX::Resource
+    +CatalystX::SimpleLogin
+    Authentication
 /;
 
 extends 'Catalyst';
@@ -39,6 +41,29 @@ __PACKAGE__->config(
             sqlite_unicode => 1,
         },
     },
+    'Plugin::Authentication' => {
+        default => {
+            credential => {
+                class          => 'Password',
+                password_field => 'password',
+                password_type  => 'clear'
+            },
+            store => {
+                class => 'Minimal',
+                users => {
+                    admin => {
+                        password => "asdfasdf8",
+                    },
+                }
+            }
+       }
+     },
+    'Controller::Login' => {
+        login_form_args => {
+            field_list => [ remember => { inactive => 1 } ],
+        },
+        login_form_class_roles => ['Talk::Role::Form'],
+    },
     'CatalystX::Resource' => {
         controllers => [
             qw/
@@ -55,7 +80,7 @@ __PACKAGE__->config(
         redirect_mode => 'list',
         actions       => {
             base => {
-                Chained  => '/',
+                Chained  => '/login/required',
                 PathPart => 'talk',
             },
         },
