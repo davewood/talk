@@ -52,7 +52,7 @@ __PACKAGE__->config(
                 class => 'Minimal',
                 users => {
                     admin => {
-                        password => '',
+                        password => 'asdfasdf',
                     },
                 },
             },
@@ -93,7 +93,7 @@ __PACKAGE__->config(
         form_class       => 'Talk::Form::Slide',
         model            => 'DB::Slide',
         traits           => ['Sortable'],
-        redirect_mode    => 'show',
+        redirect_mode    => 'show_parent',
         actions          => {
             base => {
                 Chained  => '/talk/base_with_id',
