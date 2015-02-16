@@ -1,1 +1,5 @@
-Run script/talk_server.pl to test the application.
+Talk is an application to write and display presentation slides.
+
+Slides are written in HTML and the author can use jQuery and Bootstrap.
+
+Run script/talk_server.pl to run the application from a terminal.
