@@ -2,4 +2,11 @@ Talk is an application to write and display presentation slides.
 
 Slides are written in HTML and the author can use jQuery and Bootstrap.
 
-Run script/talk_server.pl to run the application from a terminal.
+wget https://github.com/davewood/talk/archive/master.zip
+unzip master.zip
+cd talk-master
+cpanm --installdeps .
+# set password, replace asdfasdf with a password of your choice
+echo "{ 'Plugin::Authentication' => { default => { store => { users => { admin => { password => 'asdfasdf' } } } } } }" > talk_local.pl
+./script/talk_server.pl --port 3000
+# open http://localhost:3000 in your browser and login
